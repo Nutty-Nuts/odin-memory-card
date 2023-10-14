@@ -10,7 +10,7 @@ import mona from "../assets/mona.webp";
 import raiden_shogun from "../assets/raiden_shogun.webp";
 import shenhe from "../assets/shenhe.webp";
 
-const characters = {
+const genshintcg = {
     [uuid()]: {
         name: "eula",
         src: eula,
@@ -48,4 +48,4 @@ const characters = {
     },
 };
 
-export default characters;
+export default genshintcg;

@@ -1,6 +1,6 @@
 export default function Card({ name, image, id, click }) {
     return (
-        <div onClick={click} id={id}>
+        <div id={id} onClick={click}>
             <img src={image} alt={name} srcSet="" />
         </div>
     );
