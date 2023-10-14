@@ -7,10 +7,16 @@ import "./styles/App.css";
 
 import Cards from "./components/Cards";
 
+const gameStates = {
+    play: "",
+    win: "You Win!",
+    lose: "You Lose!",
+};
+
 export default function App() {
     const [characters, setCharacters] = useState(genshintcg);
     const [score, setScore] = useState(0);
-    const [gameState, setGameState] = useState("");
+    const [gameState, setGameState] = useState(gameStates.play);
 
     const handleClick = ({ currentTarget }) => {
         const id = currentTarget.id;
@@ -27,8 +33,7 @@ export default function App() {
 
     const handleGameLogic = (clicked) => {
         if (clicked) {
-            resetScore();
-            gameLose();
+            changeGameState(gameStates.lose);
             console.log("You Lose");
 
             return;
@@ -46,21 +51,18 @@ export default function App() {
         setScore(() => score + 1);
     };
 
-    const resetScore = () => {
+    const changeGameState = (state) => {
+        setGameState(() => state);
+    };
+
+    const resetGame = () => {
         setScore(() => 0);
-    };
-
-    const gameWin = () => {
-        setGameState(() => "You Win!");
-    };
-
-    const gameLose = () => {
-        setGameState(() => "You Lose!");
+        setCharacters(() => genshintcg);
     };
 
     useEffect(() => {
         if (score == Object.keys(characters).length) {
-            gameWin();
+            changeGameState(gameStates.win);
         }
     }, [score, characters]);
 
@@ -71,6 +73,7 @@ export default function App() {
             <div className="card-area">
                 <Cards characters={genshintcg} click={handleClick} />
             </div>
+            <div className="background"></div>
         </div>
     );
 }
