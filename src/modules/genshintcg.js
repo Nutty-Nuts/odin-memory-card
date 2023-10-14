@@ -22,11 +22,6 @@ const genshintcg = {
         clicked: false,
     },
     [uuid()]: {
-        name: "ganyu",
-        src: ganyu,
-        clicked: false,
-    },
-    [uuid()]: {
         name: "keqing",
         src: keqing,
         clicked: false,

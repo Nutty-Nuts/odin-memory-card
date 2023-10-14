@@ -1,8 +1,15 @@
+import PropTypes from "prop-types";
 import Card from "./Card";
+import "../styles/Cards.css";
 
 export default function Cards({ characters, click }) {
-    return <div>{mapCards(characters, click)}</div>;
+    return <div className="cards">{mapCards(characters, click)}</div>;
 }
+
+Cards.propTypes = {
+    characters: PropTypes.object,
+    click: PropTypes.func,
+};
 
 function mapCards(characters, click) {
     const cards = Object.entries(characters).map((entry) => {

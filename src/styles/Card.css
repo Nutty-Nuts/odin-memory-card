@@ -1,0 +1,7 @@
+.card {
+    margin: 2rem;
+}
+.card > img {
+    height: 320px;
+    width: auto;
+}
